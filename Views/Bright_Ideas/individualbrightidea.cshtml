@@ -1,0 +1,77 @@
+<style> 
+    .ideas{
+    display: inline-block;
+    border:2px solid black; 
+    
+}
+    table{
+border: 1px solid black;
+padding: 0;
+border-collapse: collapse;
+position: relative;
+left: 20px;
+top: 20px;
+margin:20px,0,0,20px;
+}
+td{
+/*border: 1px solid black;*/
+padding: 5px;
+margin:0;
+border-left: 1px solid black;
+border-rigth: 1px solid black;
+}
+th{
+/*border: 1px solid black;*/
+padding: 5px;
+margin:0;
+border-left: 1px solid black;
+border-rigth: 1px solid black;
+background-color: silver;
+}
+tr:nth-child(even) {background: #EEE}
+tr:nth-child(odd) {background: #FFF}
+</style>
+@using Bright_Ideas.Models
+<a href = "/Bright_Ideas"> Bright Ideas </a> <a href = "/logout"> Logout </a> 
+
+<p> <a href = "/users/@ViewBag.aPost.UserId"> @ViewBag.aPost.User.Name </a> says </p>
+<div class = "ideas">
+    @ViewBag.aPost.Idea
+</div>
+
+<h3> People who liked this post: </h3> 
+
+<table> 
+    <tr>
+        <th> Alias </th> 
+        <th> Name </th> 
+    </tr>
+    @{
+
+    foreach(User aUser in @ViewBag.listOfUser)
+    {
+
+        bool liked = false;
+        foreach(Like aLike in @aUser.LikeList)
+        {
+            if(@aLike.PostId == @ViewBag.aPost.PostId)
+            {
+                if(@aUser.UserId == @aLike.UserId)
+                {
+                    liked = true;
+                }
+
+            }
+        }
+    if(@liked)
+    {
+
+            <tr>
+                <td> @aUser.Alias </td>
+                <td> @aUser.Name </td> 
+            </tr> 
+    }
+        
+    } 
+    }
+</table> 

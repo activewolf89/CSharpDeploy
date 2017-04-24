@@ -1,0 +1,9 @@
+@using Bright_Ideas.Models
+<a href = "/Bright_Ideas"> Bright Ideas </a> <a href = "/logout"> Logout </a> 
+<h2> Name: @ViewBag.myUser.Name</h2> 
+<h2> Alias: @ViewBag.myUser.Alias</h2> 
+<h2> Email: @ViewBag.myUser.Email</h2> 
+<hr> 
+
+<h3> Total Number of Posts: @ViewBag.myUser.ListPosts.Count</h3> 
+<h3> Total Number of Likes: @ViewBag.myUser.LikeList.Count </h3> 

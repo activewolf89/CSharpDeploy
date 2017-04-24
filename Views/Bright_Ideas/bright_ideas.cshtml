@@ -1,0 +1,47 @@
+<style> 
+
+    a{
+        color:blue;
+    }
+    .ideas{
+    display: inline-block;
+    border:2px solid black; 
+    padding:20px;
+    
+}
+.delete{
+    color:red;
+}
+.description{
+
+    display:inline-block;
+}
+</style>
+<h1> Hi @ViewData["FirstName"]</h1> 
+</a> <a href = "/logout"> Logout </a> 
+@using Bright_Ideas.Models
+<h2>  @ViewData["Result"] </h2> 
+<form method = "Post" action = "/postidea">
+    <input type = "text" name = "postdata" placeholder = "Post someting witty here...">
+    <input type = "submit" value = "idea!">
+</form>
+
+
+    @{
+        @foreach(Post aPost in @ViewBag.listOfPosts)
+        {
+     
+            <p class = "description"><a href = "/users/@aPost.UserId">@aPost.User.Name </a> says:</p>
+            <div class = "ideas">
+            @aPost.Idea
+            </div>
+            <p> <a href = "/like/@aPost.PostId">Like</a>   <a href = "/Bright_Ideas/@aPost.PostId">@aPost.LikeList.Count people </a> like this  
+            @if((int)@ViewData["user_id"] == @aPost.UserId)
+            {
+                <a class = "delete" href = "/delete/@aPost.PostId">Delete </a> 
+            }
+            </p>
+          <hr>
+        } 
+
+    }

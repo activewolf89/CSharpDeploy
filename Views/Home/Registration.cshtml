@@ -1,0 +1,42 @@
+<style> 
+#Registration{
+    display:inline-block;
+}
+
+span{
+    color:red;
+    display:inline-block;
+}
+label,button{
+    display:block;
+}
+</style> 
+@model Bright_Ideas.Models.UserViewValidation
+
+<h1>Login Registration</h1>
+<fieldset id = "Registration">
+    <legend> Registration </legend>
+<form asp-controller="Home" asp-action="Register" method="post">
+    
+    <label asp-for="Name"></label>
+    <input asp-for="Name"/>
+    <span asp-validation-for="Name"></span>
+
+    <label asp-for="Alias"></label>
+    <input asp-for="Alias"/>
+    <span asp-validation-for="Alias"></span>
+    
+    <label asp-for="Email"></label>
+    <input asp-for="Email"/>
+    <span asp-validation-for="Email"></span>
+    
+    <label asp-for="Password"></label>
+    <input asp-for="Password"/>
+    <span asp-validation-for="Password"></span>
+
+    <label asp-for="ConfirmationPassword"></label>
+    <input asp-for="ConfirmationPassword"/>
+    <span asp-validation-for="ConfirmationPassword"></span>
+    <button type="submit">Register</button>
+</form>
+</fieldset>

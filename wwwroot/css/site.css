@@ -1,0 +1,20 @@
+
+span{
+    color:red;
+    display:inline-block;
+}
+label,button{
+    display:block;
+}
+#Registration{
+    display:inline-block;
+}
+#Login{
+    display:inline-block;
+    vertical-align: top;
+    
+}
+.ideas{
+    display: block;
+    border:2px solid black; 
+}

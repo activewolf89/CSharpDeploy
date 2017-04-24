@@ -1,0 +1,32 @@
+<style> 
+    #Login{
+    display:inline-block;
+    vertical-align: top;
+    
+}
+
+span{
+    color:red;
+    display:inline-block;
+}
+label,button{
+    display:block;
+}
+</style> 
+@model Bright_Ideas.Models.ExistingUserViewValidation 
+
+<fieldset id = "Login">
+    <legend> Login </legend>
+<form asp-controller="Home" asp-action="Login" method="post">
+      
+    <label asp-for="Existing_Email"></label>
+    <input asp-for="Existing_Email"/>
+    <span asp-validation-for="Existing_Email"></span>
+    
+    <label asp-for="Existing_Password"></label>
+    <input asp-for="Existing_Password"/>
+    <span asp-validation-for="Existing_Password"></span>
+
+    <button type="submit">Login</button>
+</form>
+</fieldset>
